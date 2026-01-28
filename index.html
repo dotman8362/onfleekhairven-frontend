@@ -40,6 +40,7 @@
     min-width: 100%;
     box-sizing: border-box;
   }
+    
 
   @media (min-width: 768px) {
     .testimonial-slide {
@@ -101,7 +102,7 @@
   <a href="#about" class="hover:opacity-70">About</a>
   <a href="#serve" class="hover:opacity-70">Services</a>
   <a href="https://www.instagram.com/the.seam.queen?igsh=MXd3cWVjZWpqMzR4eA%3D%3D&utm_source=qr" class="hover:opacity-70">Gallery</a>
-  <a href="#" class="hover:opacity-70">Contact Us</a>
+  <a href="https://wa.me/message/532MUMZD2RV4L1" class="hover:opacity-70">Contact Us</a>
 
   <a href="./bookappointment.html"
      class="border border-white px-6 py-3 text-sm hover:bg-pink-300 hover:text-black transition">
@@ -640,25 +641,39 @@
 
 <script>
   const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
+const mobileMenu = document.getElementById("mobileMenu");
 
-  menuBtn.addEventListener("click", () => {
-    const isOpen = mobileMenu.classList.contains("flex");
+// Toggle menu open/close
+menuBtn.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.contains("flex");
 
-    if (isOpen) {
-      // Close menu
-      mobileMenu.classList.add("hidden");
-      mobileMenu.classList.remove("flex");
-      menuBtn.textContent = "☰";
-      menuBtn.classList.remove("text-white");
-    } else {
-      // Open menu
-      mobileMenu.classList.remove("hidden");
-      mobileMenu.classList.add("flex");
-      menuBtn.textContent = "✕";
-      menuBtn.classList.add("text-white");
-    }
+  if (isOpen) {
+    // Close menu
+    mobileMenu.classList.add("hidden");
+    mobileMenu.classList.remove("flex");
+    menuBtn.textContent = "☰";
+    menuBtn.classList.remove("text-white");
+  } else {
+    // Open menu
+    mobileMenu.classList.remove("hidden");
+    mobileMenu.classList.add("flex");
+    menuBtn.textContent = "✕";
+    menuBtn.classList.add("text-white");
+  }
+});
+
+// Auto-close menu when any link inside it is clicked
+const mobileLinks = mobileMenu.querySelectorAll("a");
+mobileLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    // Close menu
+    mobileMenu.classList.add("hidden");
+    mobileMenu.classList.remove("flex");
+    menuBtn.textContent = "☰";
+    menuBtn.classList.remove("text-white");
   });
+});
+
 
 
 

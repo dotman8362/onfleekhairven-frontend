@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment | Onfleek Hairven</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="shortcut icon" href="./-5976570937010228010_120.jpg" type="image/x-icon">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    .loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff66b2;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+
+<body class="bg-white-100 text-black">
+
+ <!-- NAVBAR -->
+  <header class="relative z-10 flex items-center justify-between px-6 md:px-12 py-6">
+    
+    <!-- Logo -->
+    <!-- <h1 class="font-serif text-xl tracking-wide">
+      HOUSE OF <br class="hidden md:block"> BETTENCOURT
+    </h1> -->
+    <img src="./-5976570937010228010_120.jpg" width="50px" alt="">
+
+    <!-- Nav Links -->
+    <nav class="hidden md:flex space-x-8 text-sm uppercase tracking-wide text-[#f763c1]">
+      <a href="#" class="hover:opacity-70">About</a>
+      <a href="#" class="hover:opacity-70">Services</a>
+      <a href="#" class="hover:opacity-70">Gallery</a>
+      <a href="#" class="hover:opacity-70">Contact Us</a>
+    </nav>
+
+    <!-- CTA -->
+    <a href="./bookappointment.html"
+       class="hidden md:inline-block border bg-[#f763c1] border-white px-6 py-2 text-sm uppercase tracking-wide hover:bg-white hover:text-black transition">
+      Book An Appointment
+    </a>
+
+   <!-- Mobile Menu Button -->
+<button
+  id="menuBtn"
+  class="md:hidden text-2xl text-white relative z-50">
+  ☰
+  </button>
+<!-- Mobile Menu -->
+<div id="mobileMenu"
+  class="fixed inset-0 bg-black z-40 hidden flex-col items-center justify-center space-y-8 text-lg uppercase tracking-wide text-[#f763c1]">
+
+  <a href="#" class="hover:opacity-70">About</a>
+  <a href="#" class="hover:opacity-70">Services</a>
+  <a href="#" class="hover:opacity-70">Gallery</a>
+  <a href="#" class="hover:opacity-70">Contact Us</a>
+
+  <a href="./bookappointment.html"
+     class="border border-white px-6 py-3 text-sm hover:bg-pink-300 hover:text-black transition">
+    Book An Appointment
+  </a>
+</div>
+
+  </header>
+
+
+
+
+<!-- AUTO POLICIES MODAL -->
+<div
+  id="policiesModal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+>
+  <div class="bg-white max-w-3xl w-full rounded-3xl shadow-xl p-8 relative overflow-y-auto max-h-[90vh]">
+
+    <!-- Close Button -->
+    <button
+      id="closePolicies"
+      class="absolute top-4 right-4 text-gray-400 hover:text-black text-2xl"
+      aria-label="Close"
+    >
+      &times;
+    </button>
+
+    <h2 class="font-serif text-3xl mb-6 text-center">
+      Booking Policies & Information
+    </h2>
+
+    <div class="space-y-6 text-gray-700 text-sm md:text-base">
+
+      <div>
+        <h3 class="font-semibold text-lg mb-2">✨ What to Expect</h3>
+        <ul class="space-y-2 list-disc pl-5">
+          <li>£20 non-refundable deposit required (deducted from final total)</li>
+          <li>No-shows incur a £15 fee + deposit forfeiture</li>
+          <li>Same-day cancellations incur fees</li>
+          <li>Booking confirmation within 24 hours</li>
+          <li>Payment verification via WhatsApp</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg mb-2">⏱️ Late Arrival Policy</h3>
+        <ul class="space-y-2 list-disc pl-5">
+          <li>15-minute grace period</li>
+          <li>20+ minutes late: £10 late fee</li>
+          <li>30+ minutes: appointment cancelled</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg mb-2">🧴 Hair Drop-off Instructions</h3>
+        <ul class="space-y-2 list-disc pl-5">
+          <li>Drop hair 5 days before appointment</li>
+          <li>Late drop-off: £10/day or reschedule</li>
+          <li>Include name, date, time & service</li>
+          <li>Tracked delivery recommended</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg mb-2">🚫 House Rules</h3>
+        <ul class="space-y-2 list-disc pl-5">
+          <li>No plus-one policy</li>
+          <li>Appointment locked after confirmation</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- AGREEMENT SECTION -->
+    <div class="mt-8 border-t pt-6">
+      <div class="flex items-center gap-3">
+        <input
+          type="checkbox"
+          id="agreePolicies"
+          class="w-4 h-4 text-pink-500 rounded"
+        />
+        <label for="agreePolicies" class="text-gray-700 text-sm">
+          I have read and agree to the booking policies.
+        </label>
+      </div>
+
+      <button
+        id="acceptPolicies"
+        disabled
+        class="mt-6 w-full rounded-full bg-gray-300 text-white py-3 font-semibold cursor-not-allowed"
+      >
+        Accept & Continue
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Booking Form -->
+    <div class="bg-white rounded-3xl shadow-xl p-8 max-w-2xl mx-auto">
+  <form id="bookingForm" class="space-y-6">
+
+    <div class="flex items-center justify-between">
+      <h2 class="font-serif text-2xl md:text-3xl font-semibold">Book Your Appointment</h2>
+      <span class="text-xs text-gray-500">Secure your spot</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm mb-1 text-gray-700">Full Name <span class="text-pink-500">*</span></label>
+        <input type="text" required
+          class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-300 shadow-sm"
+          placeholder="Your full name">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1 text-gray-700">Email Address <span class="text-pink-500">*</span></label>
+        <input type="email" required
+          class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-300 shadow-sm"
+          placeholder="you@example.com">
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm mb-1 text-gray-700">Phone Number <span class="text-pink-500">*</span></label>
+        <input type="tel" required
+          class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-300 shadow-sm"
+          placeholder="+44 7000 000000">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1 text-gray-700">City <span class="text-pink-500">*</span></label>
+        <input type="text" required
+          class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-300 shadow-sm"
+          placeholder="e.g., London">
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-sm mb-1 text-gray-700">Select Service <span class="text-pink-500">*</span></label>
+      <select id="service" required
+        class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-300 shadow-sm">
+        <option value="">Choose a service</option>
+        <option value="80">Frontal Installation (3–4 hrs)</option>
+        <option value="75">Mini Frontal Install (2–3 hrs)</option>
+        <option value="85">Frontal Re-install (3 hrs)</option>
+        <option value="95">Frontal Ponytail (4 hrs)</option>
+        <option value="120">Frontal Sew-in (4 hrs)</option>
+        <option value="90">Closure Sew-in (3-4 hrs)</option>
+        <option value="100">Sew-In (leave out sew in) (4 hrs)</option>
+      </select>
+    </div>
+
+    <div id="priceBox" class="hidden bg-pink-50 border border-pink-200 rounded-xl px-4 py-3">
+      <div class="flex justify-between items-center">
+        <div>
+          <p class="text-sm text-gray-600">Service Price</p>
+          <p class="text-lg font-semibold text-black">
+            £<span id="servicePrice">0</span>
+          </p>
+        </div>
+        <span class="text-xs text-pink-500 font-semibold">Instant total</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm mb-1 text-gray-700">Pick A Date <span class="text-pink-500">*</span></label>
+        <input id="bookingDate" type="date" required
+          class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-300 shadow-sm">
+      </div>
+
+      <div>
+  <label class="block text-sm mb-1 text-gray-700">Preferred Time Slot <span class="text-pink-500">*</span></label>
+
+  <select id="timeSlot" required
+    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-300 shadow-sm">
+    <option value="">Choose a time slot</option>
+    <option value="9AM">9AM</option>
+    <option value="11AM">11AM</option>
+    <option value="1PM">1PM</option>
+    <option value="3PM">3PM</option>
+    <option value="5PM">5PM</option>
+  </select>
+</div>
+
+    </div>
+
+    <div>
+      <label class="block text-sm mb-1 text-gray-700">Additional Notes (optional)</label>
+      <textarea rows="3"
+        class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-300 shadow-sm"
+        placeholder="Tell us any details about your booking"></textarea>
+    </div>
+
+    <div id="spinner" class="hidden justify-center items-center mt-4">
+      <div class="loader"></div>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-gradient-to-r from-pink-500 to-pink-400 text-white py-4 rounded-full uppercase tracking-wide hover:from-pink-600 hover:to-pink-500 transition shadow-lg"
+    >
+      Proceed To Payment
+    </button>
+
+    <p class="text-xs text-gray-500 text-center mt-3">
+      You’ll receive a confirmation via email.
+    </p>
+  </form>
+</div>
+
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-white pt-20 pb-10 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto grid gap-12 md:grid-cols-4">
+
+    <!-- Brand -->
+    <div>
+      <h3 class="font-serif text-2xl mb-4">
+        Onfleek <span class="text-[#f763c1]">Hairven</span>
+      </h3>
+      <p class="text-gray-400 text-sm leading-relaxed">
+        Premium hairstyling services designed to enhance your beauty, confidence,
+        and elegance.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h4 class="uppercase tracking-wide text-sm mb-4 text-[#f763c1]">
+        Quick Links
+      </h4>
+      <ul class="space-y-3 text-gray-400 text-sm">
+        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+        <li><a href="#serve" class="hover:text-white transition">Services</a></li>
+        <li><a href="./bookappointment.html" class="hover:text-white transition">Book Appointment</a></li>
+        <li><a href="https://wa.me/message/532MUMZD2RV4L1" class="hover:text-white transition">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h4 class="uppercase tracking-wide text-sm mb-4 text-[#f763c1]">
+        Contact
+      </h4>
+      <ul class="space-y-3 text-gray-400 text-sm">
+       
+        <li>📞 +44 7930 846512</li>
+        <li>✉️ onfleekhairven@gmail.com</li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+   
+
+  </div>
+
+  <!-- Divider -->
+  <div class="border-t border-gray-800 mt-16 pt-6 text-center">
+    <p class="text-gray-500 text-sm">
+      © <span id="year"></span> Onfleek Hairven. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<a href="./admin.html">LOGIN</a>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.contains("flex");
+
+    if (isOpen) {
+      // Close menu
+      mobileMenu.classList.add("hidden");
+      mobileMenu.classList.remove("flex");
+      menuBtn.textContent = "☰";
+      menuBtn.classList.remove("text-white");
+    } else {
+      // Open menu
+      mobileMenu.classList.remove("hidden");
+      mobileMenu.classList.add("flex");
+      menuBtn.textContent = "✕";
+      menuBtn.classList.add("text-white");
+    }
+  });
+
+  const serviceSelect = document.getElementById('service');
+  const priceBox = document.getElementById('priceBox');
+  const servicePrice = document.getElementById('servicePrice');
+
+  serviceSelect.addEventListener('change', () => {
+    const price = serviceSelect.value;
+
+    if (price) {
+      servicePrice.textContent = Number(price).toLocaleString();
+      priceBox.classList.remove('hidden');
+    } else {
+      priceBox.classList.add('hidden');
+      servicePrice.textContent = '0';
+    }
+  });
+
+
+
+  // save booking details
+
+  
+  // 
+  
+
+  document.getElementById('bookingForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const spinner = document.getElementById('spinner');
+  spinner.classList.remove('hidden');
+
+  const serviceSelect = document.getElementById('service');
+  const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
+  const price = serviceSelect.value;
+
+  const bookingData = {
+    fullName: document.querySelector('input[type="text"]').value,
+    email: document.querySelector('input[type="email"]').value,
+    phone: document.querySelector('input[type="tel"]').value,
+    city: document.querySelectorAll('input[type="text"]')[1].value,
+    serviceName,
+    price,
+    date: document.getElementById("bookingDate").value,
+   time: document.getElementById("timeSlot").value,
+
+  };
+
+  localStorage.setItem('bookingData', JSON.stringify(bookingData));
+
+  try {
+    const res = await fetch("/api/bookings", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookingData),
+    });
+
+    const data = await res.json();
+
+    spinner.classList.add('hidden');
+
+    if (res.ok) {
+      window.location.href = "payment.html";
+    } else {
+      alert(data.message || "Booking failed. Try again.");
+    }
+  } catch (err) {
+    spinner.classList.add('hidden');
+   alert(`Error: ${err.message}`);
+   console.log(res.status);
+console.log(await res.text());
+
+  }
+});
+
+
+
+// Fetch blocked dates from backend and disable them
+async function initBookingCalendar() {
+  // Fetch blocked dates from backend
+  const res = await fetch("/api/availability");
+  const blockedDates = await res.json(); // ["2026-01-26", "2026-01-27"]
+
+  // Initialize flatpickr
+  flatpickr("#bookingDate", {
+    dateFormat: "Y-m-d",
+    disable: blockedDates,
+    minDate: "today", // optional: prevent past dates
+  });
+}
+
+initBookingCalendar();
+
+
+async function refreshCalendar() {
+  const blockedDates = await fetch("/api/availability").then(res => res.json());
+
+  const fp = document.querySelector("#bookingDate")._flatpickr;
+  fp.set("disable", blockedDates);
+}
+
+
+
+
+
+  
+  const modal = document.getElementById("policiesModal");
+  const closeBtn = document.getElementById("closePolicies");
+
+  const agreeCheckbox = document.getElementById("agreePolicies");
+  const acceptBtn = document.getElementById("acceptPolicies");
+
+  // Enable button when checkbox is checked
+  agreeCheckbox.addEventListener("change", () => {
+    if (agreeCheckbox.checked) {
+      acceptBtn.disabled = false;
+      acceptBtn.classList.remove("bg-gray-300", "cursor-not-allowed");
+      acceptBtn.classList.add("bg-pink-500", "hover:bg-pink-600", "cursor-pointer");
+    } else {
+      acceptBtn.disabled = true;
+      acceptBtn.classList.add("bg-gray-300", "cursor-not-allowed");
+      acceptBtn.classList.remove("bg-pink-500", "hover:bg-pink-600", "cursor-pointer");
+    }
+  });
+
+  // Close modal when Accept is clicked
+  acceptBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
+
+  // Close modal when clicking outside
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.add("hidden");
+    }
+  });
+
+
+
+
+
+ </script>
+
+  
+
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Onfleek Hairven- Premium Hairstylist</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="./-5976570937010228010_120.jpg" type="image/x-icon">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: Custom font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<style>
+@media (max-width: 767px) {
+  .instagram-section *,
+  .testimonials-section *,
+  .about-section * {
+    visibility: visible !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+</style>
+
+
+  <style>
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+  .testimonial-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 768px) {
+    .testimonial-slide {
+      min-width: 100%;
+    }
+  }
+
+  </style>
+
+  
+</head>
+
+<body class="bg-black text-white">
+
+<!-- HERO SECTION -->
+ 
+
+<section
+  class="hero-section relative min-h-screen bg-cover bg-center  bg-no-repeat w-full h-full object-cover object-top"
+   style="background-image: url('./IMG_20260125_033339_768.jpg');"
+>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <!-- NAVBAR -->
+  <header class="relative z-10 flex items-center justify-between px-6 md:px-12 py-6">
+    
+    <!-- Logo -->
+    <!-- <h1 class="font-serif text-xl tracking-wide">
+      HOUSE OF <br class="hidden md:block"> BETTENCOURT
+    </h1> -->
+    <img src="./-5976570937010228010_120.jpg" width="50px" alt="">
+
+    <!-- Nav Links -->
+    <nav class="hidden md:flex space-x-8 text-sm uppercase tracking-wide text-[#f763c1]">
+      <a href="#about" class="hover:opacity-70">About</a>
+      <a href="#serve" class="hover:opacity-70">Services</a>
+      <a href="https://www.instagram.com/the.seam.queen?igsh=MXd3cWVjZWpqMzR4eA%3D%3D&utm_source=qr" class="hover:opacity-70">Gallery</a>
+      <a href="https://wa.me/message/532MUMZD2RV4L1" class="hover:opacity-70">Contact Us</a>
+    </nav>
+
+    <!-- CTA -->
+    <a href="./bookappointment.html"
+       class="hidden md:inline-block border bg-[#f763c1] border-white px-6 py-2 text-sm uppercase tracking-wide hover:bg-white hover:text-black transition">
+      Book An Appointment
+    </a>
+
+   <!-- Mobile Menu Button -->
+<button
+  id="menuBtn"
+  class="md:hidden text-2xl text-white relative z-50">
+  ☰
+  </button>
+<!-- Mobile Menu -->
+<div id="mobileMenu"
+  class="fixed inset-0 bg-black z-40 hidden flex-col items-center justify-center space-y-8 text-lg uppercase tracking-wide text-[#f763c1]">
+
+  <a href="#about" class="hover:opacity-70">About</a>
+  <a href="#serve" class="hover:opacity-70">Services</a>
+  <a href="https://www.instagram.com/the.seam.queen?igsh=MXd3cWVjZWpqMzR4eA%3D%3D&utm_source=qr" class="hover:opacity-70">Gallery</a>
+  <a href="#" class="hover:opacity-70">Contact Us</a>
+
+  <a href="./bookappointment.html"
+     class="border border-white px-6 py-3 text-sm hover:bg-pink-300 hover:text-black transition">
+    Book An Appointment
+  </a>
+</div>
+
+  </header>
+
+ <!-- HERO CONTENT -->
+<div class="relative flex items-center justify-center min-h-[80vh] text-center px-6">
+  <div>
+    <h2 class="font-serif text-4xl md:text-6xl lg:text-7xl tracking-wide mb-4">
+      Onfleek <span style="color: #f763c1;">Hairven</span>
+    </h2>
+
+    <p class="uppercase tracking-[0.3em] text-sm mb-8">
+      Let's Create Your <span style="color: #f763c1;">Look.</span>
+    </p>
+
+    <!-- Book Appointment Button -->
+    <a
+      href="./bookappointment.html"
+      class="inline-block bg-[#f763c1] text-white px-8 py-4 rounded-full
+             text-sm uppercase tracking-widest font-semibold
+             hover:bg-black transition duration-300"
+    >
+      Book an Appointment
+    </a>
+  </div>
+</div>
+
+
+</section>
+
+
+<!-- SERVICES SECTION -->
+
+<section id="serve" class="bg-[#fff7fb] py-24 px-6 md:px-12">
+
+  <!-- Section Header -->
+  <div class="max-w-4xl mx-auto text-center mb-16">
+    <h2 class="font-serif text-3xl md:text-4xl mb-4 text-black">
+      Our <span class="text-[#f763c1]">Services</span>
+    </h2>
+    <p class="text-gray-600 max-w-xl mx-auto">
+      Premium hairstyling services tailored to enhance your beauty and confidence.
+    </p>
+  </div>
+
+  <!-- Services Grid -->
+  <div class="max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+    <!-- SERVICE CARD -->
+    <div class="bg-white rounded-3xl shadow-md hover:shadow-2xl transition duration-500 overflow-hidden group">
+
+      <!-- Image -->
+      <div class="relative aspect-[4/5] overflow-hidden">
+        <img src="./IMG_20260125_033339_701.jpg" alt="Frontal Installation"
+          class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+
+        <span class="absolute top-4 right-4 bg-[#f763c1] text-white text-sm font-semibold px-4 py-1 rounded-full shadow">
+          £80
+        </span>
+      </div>
+
+      <!-- Content -->
+      <div class="p-6">
+        <h3 class="font-serif text-xl mb-3 text-black">Frontal Installation</h3>
+
+        <span class="inline-block text-xs uppercase tracking-wide bg-pink-100 text-[#f763c1] px-3 py-1 rounded-full mb-4">
+          3 hrs 30 mins
+        </span>
+
+        <ul class="text-gray-600 text-sm space-y-2 mb-6">
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Hair must be dropped 5 days prior</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Wig customisation & installation</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>No hard or transparent lace</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Come with neat flat cornrows</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Balance accepted in cash only</li>
+        </ul>
+
+        <a href="./bookappointment.html"
+          class="block text-center text-sm text-black uppercase tracking-wide border border-black py-3 rounded-full hover:bg-black hover:text-white transition">
+          Book Appointment
+        </a>
+      </div>
+    </div>
+
+    <!-- SERVICE CARD -->
+    <div class="bg-white rounded-3xl shadow-md hover:shadow-2xl transition duration-500 overflow-hidden group">
+
+      <div class="relative aspect-[4/5] overflow-hidden">
+        <img src="./IMG_20260127_122730_298.jpg" alt="Mini Frontal Install"
+          class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+
+        <span class="absolute top-4 right-4 bg-[#f763c1] text-white text-sm font-semibold px-4 py-1 rounded-full shadow">
+          £75
+        </span>
+      </div>
+
+      <div class="p-6">
+        <h3 class="font-serif text-xl mb-3 text-black">Mini Frontal Install (4x4 – 7x7)</h3>
+
+        <span class="inline-block text-xs uppercase tracking-wide bg-pink-100 text-[#f763c1] px-3 py-1 rounded-full mb-4">
+          2 hrs 30 mins
+        </span>
+
+        <ul class="text-gray-600 text-sm space-y-2 mb-6">
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Hair dropped 5 days prior</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Customisation & installation</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>No hard/transparent lace</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Neat flat cornrows required</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Cash balance only</li>
+        </ul>
+
+        <a href="./bookappointment.html"
+          class="block text-center text-sm text-black uppercase tracking-wide border border-black py-3 rounded-full hover:bg-black hover:text-white transition">
+          Book Appointment
+        </a>
+      </div>
+    </div>
+
+    <!-- SERVICE CARD -->
+    <div class="bg-white rounded-3xl shadow-md hover:shadow-2xl transition duration-500 overflow-hidden group">
+
+      <div class="relative aspect-[4/5] overflow-hidden">
+        <img src="./IMG_20260127_122745_900.jpg" alt="Frontal Reinstall"
+          class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+
+        <span class="absolute top-4 right-4 bg-[#f763c1] text-white text-sm font-semibold px-4 py-1 rounded-full shadow">
+          £85
+        </span>
+      </div>
+
+      <div class="p-6">
+        <h3 class="font-serif text-xl mb-3 text-black">Frontal Re-Install</h3>
+
+        <span class="inline-block text-xs uppercase tracking-wide bg-pink-100 text-[#f763c1] px-3 py-1 rounded-full mb-4">
+          3 hrs
+        </span>
+
+        <ul class="text-gray-600 text-sm space-y-2 mb-6">
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Hair dropped 5 days prior</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Wig washing & reconstruction</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>All glue removed before drop-off</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>No hard lace allowed</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Cash balance only</li>
+        </ul>
+
+        <a href="./bookappointment.html"
+          class="block text-center text-sm text-black uppercase tracking-wide border border-black py-3 rounded-full hover:bg-black hover:text-white transition">
+          Book Appointment
+        </a>
+      </div>
+    </div>
+
+     <div class="bg-white rounded-3xl shadow-md hover:shadow-2xl transition overflow-hidden group">
+      <div class="relative aspect-[4/5] overflow-hidden">
+        <img src="./IMG_20260127_122725_549.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+        <span class="absolute top-4 right-4 bg-[#f763c1] text-white text-sm font-semibold px-4 py-1 rounded-full shadow">£95</span>
+      </div>
+      <div class="p-6">
+        <h3 class="font-serif text-xl mb-3 text-black">Frontal Ponytail</h3>
+        <span class="inline-block text-xs uppercase tracking-wide bg-pink-100 text-[#f763c1] px-3 py-1 rounded-full mb-4">4 hrs</span>
+        <ul class="text-gray-600 text-sm space-y-2 mb-6">
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Bundles & frontal dropped 5 days prior</li>
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Customisation & straighten touch-up</li>
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>1–2 bundles required</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>No hard lace allowed</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Cash balance only</li>
+        </ul>
+        <a href="./bookappointment.html"class="block text-center text-sm text-black uppercase tracking-wide border border-black py-3 rounded-full hover:bg-black hover:text-white transition">Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- Frontal Sew-In -->
+    <div class="bg-white rounded-3xl shadow-md hover:shadow-2xl transition overflow-hidden group">
+      <div class="relative aspect-[4/5] overflow-hidden">
+        <img src="./IMG_20260125_033339_865.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+        <span class="absolute top-4 right-4 bg-[#f763c1] text-white text-sm font-semibold px-4 py-1 rounded-full shadow">£120</span>
+      </div>
+      <div class="p-6">
+        <h3 class="font-serif text-xl mb-3 text-black">Frontal Sew-In</h3>
+        <span class="inline-block text-xs uppercase tracking-wide bg-pink-100 text-[#f763c1] px-3 py-1 rounded-full mb-4">4 hrs</span>
+        <ul class="text-gray-600 text-sm space-y-2 mb-6">
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Bundles & frontal dropped 5 days prior</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Customisation & installation</li>
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>No hard lace allowed</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Hair washed & oil-free</li>
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Cash balance only</li>
+        </ul>
+        <a href="./bookappointment.html" class="block text-center text-sm text-black uppercase tracking-wide border border-black py-3 rounded-full hover:bg-black hover:text-white transition">Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- Closure Sew-In -->
+    <div class="bg-white rounded-3xl shadow-md hover:shadow-2xl transition overflow-hidden group">
+      <div class="relative aspect-[4/5] overflow-hidden">
+        <img src="./IMG_20260127_122736_830.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+        <span class="absolute top-4 right-4 bg-[#f763c1] text-white text-sm font-semibold px-4 py-1 rounded-full shadow">£90</span>
+      </div>
+      <div class="p-6">
+        <h3 class="font-serif text-xl mb-3 text-black">Closure Sew-In</h3>
+        <span class="inline-block text-xs uppercase tracking-wide bg-pink-100 text-[#f763c1] px-3 py-1 rounded-full mb-4">3 hrs 30 mins</span>
+        <ul class="text-gray-600 text-sm space-y-2 mb-6">
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Bundles & closure dropped 5 days prior</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Customisation & installation</li>
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>>No hard lace allowed</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Hair oil-free</li>
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Cash balance only</li>
+        </ul>
+        <a href="./bookappointment.html" class="block text-center text-sm text-black uppercase tracking-wide border border-black py-3 rounded-full hover:bg-black hover:text-white transition">Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- Leave-Out Sew-In -->
+    <div class="bg-white rounded-3xl shadow-md hover:shadow-2xl transition overflow-hidden group">
+      <div class="relative aspect-[4/5] overflow-hidden">
+        <img src="./IMG_20260127_122739_682.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+        <span class="absolute top-4 right-4 bg-[#f763c1] text-white text-sm font-semibold px-4 py-1 rounded-full shadow">£100</span>
+      </div>
+      <div class="p-6">
+        <h3 class="font-serif text-xl mb-3 text-black">Leave-Out Sew-In</h3>
+        <span class="inline-block text-xs uppercase tracking-wide bg-pink-100 text-[#f763c1] px-3 py-1 rounded-full mb-4">4 hrs</span>
+         <ul class="text-gray-600 text-sm space-y-2 mb-6">
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Neat cornrows required</li>
+          <li class="flex gap-2"><span class="text-[#f763c1]">•</span>3 bundles depending on style</li>
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Hair washed & fully dry</li>
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Professional finish</li>
+           <li class="flex gap-2"><span class="text-[#f763c1]">•</span>Cash balance only</li>
+        </ul>
+        <a href="./bookappointment.html" class="block text-center text-sm text-black uppercase tracking-wide border border-black py-3 rounded-full hover:bg-black hover:text-white transition">Book Appointment</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about-section bg-gradient-to-br from-pink-50 to-white text-black py-20 px-6 md:px-12">
+
+  <div class="max-w-6xl mx-auto grid gap-12 items-center md:grid-cols-2">
+
+    <!-- Image -->
+    <div class="relative">
+      <img
+        src="./586655797_18074458760257023_249005936646985359_n.jpg"
+        alt="About Onfleek Hairven"
+        class="rounded-3xl shadow-2xl w-full object-cover">
+
+      <!-- Experience Badge -->
+      <div class="absolute -bottom-6 -left-6 bg-white px-6 py-4 rounded-2xl shadow-lg border border-gray-100">
+        <p class="font-serif text-xl text-gray-900">5+ Years</p>
+        <span class="text-sm text-gray-500">Experience</span>
+      </div>
+
+      <!-- Glow Accent -->
+      <div class="absolute -top-10 -right-10 w-32 h-32 bg-pink-300 rounded-full blur-3xl opacity-40"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative">
+      <h2 class="font-serif text-4xl md:text-5xl mb-6">
+        About Onfleek <span class="text-pink-500">Hairven</span>
+      </h2>
+
+      <p class="text-gray-700 leading-relaxed mb-6 text-base md:text-lg">
+        Onfleek_hairven is a luxury hair brand specializing in premium affordable quality extensions and expertly crafted wig installs.
+        Designed for soft glam girls and boss women, our hair blends seamlessly, moves effortlessly, and delivers confidence in every strand.
+        Feminine, clean, flawless installs always on fleek.
+        At OH, a wig is like a unique crown — a crown of confidence and a touch of renewal.
+      </p>
+
+      <!-- Highlights -->
+      <ul class="space-y-4 mb-8">
+        <li class="flex items-start gap-3">
+          <span class="text-pink-500 text-2xl">✓</span>
+          <span class="text-gray-700 font-medium">Professional and hygienic service</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-pink-500 text-2xl">✓</span>
+          <span class="text-gray-700 font-medium">Personalized styling consultations</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-pink-500 text-2xl">✓</span>
+          <span class="text-gray-700 font-medium">Trusted by happy clients</span>
+        </li>
+      </ul>
+
+      <!-- CTA -->
+      <a href="./bookappointment.html"
+         class="inline-block bg-black text-white px-10 py-3 rounded-full uppercase tracking-wider text-sm hover:bg-pink-500 hover:text-black transition shadow-lg">
+        Book an Appointment
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS SECTION -->
+ 
+
+<section class="bg-gradient-to-br from-pink-50 to-white py-20 px-6 md:px-12 text-black">
+  <div class="max-w-5xl mx-auto text-center">
+
+    <h2 class="font-serif text-4xl mb-3 text-pink-500">
+      What Our Clients Say
+    </h2>
+    <p class="text-gray-600 mb-12">
+      Real experiences from our happy clients
+    </p>
+
+    <!-- Slider -->
+    <div class="relative w-full">
+
+      <!-- Viewport -->
+      <div id="testimonialViewport" class="overflow-hidden w-full rounded-3xl shadow-lg bg-white border border-gray-100">
+        
+        <!-- Track -->
+        <div id="testimonialTrack" class="flex transition-transform duration-700 ease-in-out">
+          
+          <!-- Slide 1 -->
+          <div class="testimonial-slide px-6 py-10 w-full">
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+              <p class="italic text-gray-700 mb-6 text-base md:text-lg">
+                “Absolutely amazing experience! From booking to final look,
+                everything was seamless.”
+              </p>
+              <h4 class="font-semibold text-gray-900">— Adebisi O.</h4>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial-slide px-6 py-10 w-full">
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+              <p class="italic text-gray-700 mb-6 text-base md:text-lg">
+                “Professional, punctual, and very talented.
+                I’ve already recommended her to my friends.”
+              </p>
+              <h4 class="font-semibold text-gray-900">— Kemi A.</h4>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial-slide px-6 py-10 w-full">
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+              <p class="italic text-gray-700 mb-6 text-base md:text-lg">
+                “Top-notch service. Appointment started on time,
+                and the quality was excellent.”
+              </p>
+              <h4 class="font-semibold text-gray-900">— Zainab T.</h4>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="testimonial-slide px-6 py-10 w-full">
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+              <p class="italic text-gray-700 mb-6 text-base md:text-lg">
+                “Best hair service I’ve had in a long time.
+                Calm environment and stunning results.”
+              </p>
+              <h4 class="font-semibold text-gray-900">— Temitope L.</h4>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex justify-center gap-3 mt-6">
+        <button onclick="prevTestimonial()" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm hover:bg-pink-50 transition">
+          ←
+        </button>
+        <button onclick="nextTestimonial()" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm hover:bg-pink-50 transition">
+          →
+        </button>
+      </div>
+
+      <!-- Dots -->
+      <div id="testimonialDots" class="flex justify-center gap-2 mt-4"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- INSTAGRAM FOLLOW SECTION -->
+<section class="instagram-section bg-black text-white py-20 px-6 md:px-12">
+  <div class="max-w-6xl mx-auto grid gap-10 items-center md:grid-cols-2">
+
+    <!-- Text -->
+    <div>
+      <h2 class="font-serif text-4xl mb-4 text-white">
+        Follow Us on Instagram
+      </h2>
+
+      <p class="text-gray-300 mb-6 text-base md:text-lg">
+        Stay updated with our latest styles, transformations, and behind-the-scenes moments.
+      </p>
+
+      <a
+        href="https://www.instagram.com/the.seam.queen?igsh=MXd3cWVjZWpqMzR4eA%3D%3D&utm_source=qr"
+        target="_blank"
+        class="inline-block bg-pink-500 text-black px-10 py-3 rounded-full uppercase tracking-wide text-sm hover:bg-pink-400 transition shadow-lg">
+        Follow @onfleekhairven
+      </a>
+
+      <div class="mt-6 flex gap-4 items-center">
+        <span class="text-gray-400 text-sm">#OnfleekHairven</span>
+        <span class="text-gray-400 text-sm">•</span>
+        <span class="text-gray-400 text-sm">New styles weekly</span>
+      </div>
+    </div>
+
+    <!-- Image Grid -->
+    <div class="grid grid-cols-3 gap-4">
+      <img src="./IMG_20260125_033339_898.jpg" class="rounded-xl object-cover h-32 w-full hover:scale-105 transition" />
+      <img src="./IMG_20260125_033339_444.jpg" class="rounded-xl object-cover h-32 w-full hover:scale-105 transition" />
+      <img src="./IMG_20260125_033339_701.jpg" class="rounded-xl object-cover h-32 w-full hover:scale-105 transition" />
+      <img src="./IMG_20260125_033339_856.jpg" class="rounded-xl object-cover h-32 w-full hover:scale-105 transition" />
+      <img src="./IMG_20260125_033339_768.jpg" class="rounded-xl object-cover h-32 w-full hover:scale-105 transition" />
+      <img src="./IMG_20260125_033339_865.jpg" class="rounded-xl object-cover h-32 w-full hover:scale-105 transition" />
+    </div>
+
+  </div>
+</section>
+<section class="tiktok-section bg-gradient-to-br from-black via-gray-900 to-black text-white py-20 px-6 md:px-12">
+  <div class="max-w-6xl mx-auto grid gap-10 items-center md:grid-cols-2">
+
+    <!-- Image Grid -->
+    
+
+    <!-- Text -->
+    <div class="order-1 md:order-2">
+      <h2 class="font-serif text-4xl mb-4">
+        Follow Us on TikTok
+      </h2>
+
+      <p class="text-gray-300 mb-6 text-base md:text-lg">
+        Watch quick transformations, styling tips, client reactions, and trending hair content.
+      </p>
+
+      <a
+        href="http://www.tiktok.com/@the.seam.queen"
+        target="_blank"
+        class="inline-flex items-center gap-2 bg-[#f763c1] text-black px-10 py-3 rounded-full uppercase tracking-wide text-sm hover:bg-gray-200 transition shadow-lg"
+      >
+        <!-- TikTok Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16 8.245A5.75 5.75 0 0 1 12.75 7V16.5a4.5 4.5 0 1 1-4.5-4.5c.345 0 .68.04 1 .115v2.25a2.25 2.25 0 1 0 1.75 2.135V2h1.75A5.75 5.75 0 0 0 16 6.245v2z"/>
+        </svg>
+        Follow @onfleekhairven
+      </a>
+
+      <div class="mt-6 flex gap-4 items-center">
+        <span class="text-gray-400 text-sm">#HairTok</span>
+        <span class="text-gray-400 text-sm">•</span>
+        <span class="text-gray-400 text-sm">Viral styles & trends</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-white pt-20 pb-10 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto grid gap-12 md:grid-cols-4">
+
+    <!-- Brand -->
+    <div>
+      <h3 class="font-serif text-3xl mb-4">
+        Onfleek <span class="text-pink-500">Hairven</span>
+      </h3>
+      <p class="text-gray-400 text-sm leading-relaxed">
+        Premium hairstyling services designed to enhance your beauty, confidence,
+        and elegance.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h4 class="uppercase tracking-wide text-sm mb-4 text-pink-500">
+        Quick Links
+      </h4>
+      <ul class="space-y-3 text-gray-400 text-sm">
+        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+        <li><a href="#serve" class="hover:text-white transition">Services</a></li>
+        <li><a href="./bookappointment.html" class="hover:text-white transition">Book Appointment</a></li>
+        <li><a href="https://wa.me/message/532MUMZD2RV4L1" class="hover:text-white transition">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h4 class="uppercase tracking-wide text-sm mb-4 text-pink-500">
+        Contact
+      </h4>
+      <ul class="space-y-3 text-gray-400 text-sm">
+        <li class="flex items-center gap-2">
+          <span class="text-pink-500">📞</span> +44 7930 846512
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-pink-500">✉️</span> onfleekhairven@gmail.com
+        </li>
+      </ul>
+    </div>
+
+    <!-- Social + Newsletter -->
+   
+
+  </div>
+
+  <!-- Divider -->
+  <div class="border-t border-gray-800 mt-16 pt-6 text-center">
+    <p class="text-gray-500 text-sm">
+      © <span id="year"></span> Onfleek Hairven. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+
+
+
+
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.contains("flex");
+
+    if (isOpen) {
+      // Close menu
+      mobileMenu.classList.add("hidden");
+      mobileMenu.classList.remove("flex");
+      menuBtn.textContent = "☰";
+      menuBtn.classList.remove("text-white");
+    } else {
+      // Open menu
+      mobileMenu.classList.remove("hidden");
+      mobileMenu.classList.add("flex");
+      menuBtn.textContent = "✕";
+      menuBtn.classList.add("text-white");
+    }
+  });
+
+
+
+   
+    const track = document.getElementById("testimonialTrack");
+  const slides = track.children;
+  let index = 0;
+
+  function updateSlider() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextTestimonial() {
+    index = (index + 1) % slides.length;
+    updateSlider();
+  }
+
+  function prevTestimonial() {
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlider();
+  }
+
+  // Auto-slide every 5 seconds (optional)
+  setInterval(nextTestimonial, 5000);
+
+  ScrollReveal({
+    distance: '60px',
+    duration: 1200,
+    easing: 'ease-out',
+    reset: false
+  });
+
+  // HERO
+  ScrollReveal().reveal('.hero-section h2', { origin: 'top', delay: 200 });
+  ScrollReveal().reveal('.hero-section p', { origin: 'bottom', delay: 400 });
+
+  // SERVICES
+  ScrollReveal().reveal('.services-section h2', { origin: 'top' });
+  ScrollReveal().reveal('.services-section p', { origin: 'bottom', delay: 200 });
+  ScrollReveal().reveal('.services-section .group', {
+    origin: 'bottom',
+    interval: 150
+  });
+
+  // ABOUT
+  ScrollReveal().reveal('.about-section img', { origin: 'left' });
+  ScrollReveal().reveal('.about-section h2', { origin: 'right', delay: 200 });
+  ScrollReveal().reveal('.about-section p, .about-section ul, .about-section a', {
+    origin: 'bottom',
+    delay: 300
+  });
+
+  // TESTIMONIALS
+  // ScrollReveal().reveal('.testimonials-section h2', { origin: 'top' });
+  // ScrollReveal().reveal('.testimonials-section p', { origin: 'bottom', delay: 200 });
+  // ScrollReveal().reveal('.testimonials-section .bg-gray-50', {
+  //   origin: 'bottom',
+  //   interval: 200
+  // });
+
+  // INSTAGRAM
+  ScrollReveal().reveal('.instagram-section h2', { origin: 'left' });
+  ScrollReveal().reveal('.instagram-section p', { origin: 'right', delay: 200 });
+  ScrollReveal().reveal('.instagram-section a', { origin: 'bottom', delay: 300 });
+  ScrollReveal().reveal('.instagram-section img', {
+    origin: 'bottom',
+    interval: 100
+  });
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

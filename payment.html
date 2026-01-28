@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Summary - Onfleekhairven</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="shortcut icon" href="./-5976570937010228010_120.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 min-h-screen py-10 px-4 sm:px-6">
+
+  <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-8 space-y-10">
+    
+    <!-- Heading -->
+    <h2 class="text-2xl sm:text-3xl font-serif text-center">
+      Booking Summary - Onfleekhairven
+    </h2>
+
+   <div class="space-y-6">
+
+  <!-- Booking Details -->
+  <div class="border border-pink-200 rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-pink-50 to-white shadow-lg">
+    <div class="flex items-center justify-between">
+      <h3 class="text-xl sm:text-2xl font-serif font-semibold text-gray-800">
+        Appointment Summary
+      </h3>
+      <span class="text-xs sm:text-sm text-gray-500 uppercase tracking-wider">
+        Onfleekhairven
+      </span>
+    </div>
+
+    <div class="mt-4 space-y-3 text-sm sm:text-base text-gray-700">
+
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
+        <span class="text-gray-500">Full Name</span>
+        <span class="font-medium" id="fullName"></span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
+        <span class="text-gray-500">Email</span>
+        <span class="font-medium break-all" id="email"></span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
+        <span class="text-gray-500">Phone</span>
+        <span class="font-medium" id="phone"></span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
+        <span class="text-gray-500">City</span>
+        <span class="font-medium" id="city"></span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
+        <span class="text-gray-500">Service</span>
+        <span class="font-medium sm:text-left" id="service"></span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
+        <span class="text-gray-500">Date</span>
+        <span class="font-medium" id="date"></span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
+        <span class="text-gray-500">Time</span>
+        <span class="font-medium" id="time"></span>
+      </div>
+    </div>
+
+    <!-- Price Highlight -->
+    <div class="mt-6 bg-white border border-pink-300 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+      <span class="uppercase text-xs tracking-wider text-gray-500">
+        Total Price
+      </span>
+      <span class="text-xl sm:text-2xl font-bold text-gray-900">
+        £<span id="price"></span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Deposit Notice -->
+  <p class="text-xs sm:text-sm text-gray-500 text-center px-2">
+    * A <span class="font-medium text-gray-800">£20 deposit</span> is required to confirm this booking.
+  </p>
+
+  <!-- Payment Info -->
+<div class="border border-pink-200 rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-pink-50 to-white shadow-lg">
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold text-base sm:text-lg">Payment Details</h3>
+    <span class="text-xs text-gray-500 uppercase tracking-wider">Bank Transfer</span>
+  </div>
+
+  <div class="mt-4 space-y-2 text-sm text-gray-700">
+
+    <!-- Bank Name -->
+    <div class="flex items-center justify-between gap-3">
+      <p class="flex items-center gap-2">
+        <span class="text-pink-500 font-bold">•</span>
+        <strong class="text-gray-800">Bank Name:</strong>
+        <span id="bankName" class="font-medium">MONZO Bank</span>
+      </p>
+      
+    </div>
+
+    <!-- Account Name -->
+    <div class="flex items-center justify-between gap-3">
+      <p class="flex items-center gap-2">
+        <span class="text-pink-500 font-bold">•</span>
+        <strong class="text-gray-800">Account Name:</strong>
+        <span id="accountName" class="font-medium">Oluwafunmilayo Adeyemi</span>
+      </p>
+      
+    </div>
+
+    <!-- Account Number -->
+    <div class="flex items-center justify-between gap-3">
+      <p class="flex items-center gap-2">
+        <span class="text-pink-500 font-bold">•</span>
+        <strong class="text-gray-800">Account Number:</strong>
+        <span id="accountNumber" class="font-medium">22620205</span>
+      </p>
+      <button id="copyNumber"
+        class="px-4 py-2 bg-black text-white rounded-full text-xs font-semibold hover:bg-pink-400 hover:text-black transition">
+        Copy
+      </button>
+    </div>
+
+    <!-- Sort Code -->
+    <div class="flex items-center justify-between gap-3">
+      <p class="flex items-center gap-2">
+        <span class="text-pink-500 font-bold">•</span>
+        <strong class="text-gray-800">Sort Code:</strong>
+        <span id="sortCode" class="font-medium">04-00-03</span>
+      </p>
+      <button id="copySort"
+        class="px-4 py-2 bg-black text-white rounded-full text-xs font-semibold hover:bg-pink-400 hover:text-black transition">
+        Copy
+      </button>
+    </div>
+
+  </div>
+
+  <p class="text-xs sm:text-sm text-gray-600 mt-4">
+    After payment, click the button below to send your receipt via WhatsApp.
+  </p>
+</div>
+
+
+  <!-- Confirm Button -->
+  <button
+    onclick="confirmPayment()"
+    class="w-full bg-black text-white py-4 rounded-full uppercase tracking-wide
+           hover:bg-pink-400 hover:text-black transition text-sm sm:text-base shadow-lg">
+    Confirm Payment
+  </button>
+
+</div>
+  </div>
+
+
+
+  <!-- FOOTER -->
+<footer class="bg-black text-white pt-20 pb-10 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto grid gap-12 md:grid-cols-4">
+
+    <!-- Brand -->
+    <div>
+      <h3 class="font-serif text-2xl mb-4">
+        Onfleek <span class="text-[#f763c1]">Hairven</span>
+      </h3>
+      <p class="text-gray-400 text-sm leading-relaxed">
+        Premium hairstyling services designed to enhance your beauty, confidence,
+        and elegance.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h4 class="uppercase tracking-wide text-sm mb-4 text-[#f763c1]">
+        Quick Links
+      </h4>
+      <ul class="space-y-3 text-gray-400 text-sm">
+        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+        <li><a href="#serve" class="hover:text-white transition">Services</a></li>
+        <li><a href="./bookappointment.html" class="hover:text-white transition">Book Appointment</a></li>
+        <li><a href="https://wa.me/message/532MUMZD2RV4L1" class="hover:text-white transition">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h4 class="uppercase tracking-wide text-sm mb-4 text-[#f763c1]">
+        Contact
+      </h4>
+      <ul class="space-y-3 text-gray-400 text-sm">
+        
+        <li>📞 +44 7930 846512</li>
+        <li>✉️ onfleekhairven@gmail.com</li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+   
+
+  </div>
+
+  <!-- Divider -->
+  <div class="border-t border-gray-800 mt-16 pt-6 text-center">
+    <p class="text-gray-500 text-sm">
+      © <span id="year"></span> Onfleek Hairven. All rights reserved.
+    </p>
+  </div>
+</footer>
+  <!-- Script -->
+  <script>
+    const booking = JSON.parse(localStorage.getItem('bookingData'));
+
+    if (!booking) {
+      alert('No booking data found');
+      window.location.href = '/';
+    }
+
+    document.getElementById('fullName').textContent = booking.fullName;
+    document.getElementById('email').textContent = booking.email;
+    document.getElementById('phone').textContent = booking.phone;
+    document.getElementById('city').textContent = booking.city;
+    document.getElementById('service').textContent = booking.serviceName;
+    document.getElementById('date').textContent = booking.date;
+    document.getElementById('time').textContent = booking.time;
+    document.getElementById('price').textContent = Number(booking.price).toLocaleString();
+
+    function confirmPayment() {
+      const adminPhone = '447930846512'; // WhatsApp number (no +)
+
+      const message = `
+Hello, I have made payment for my booking.
+
+Name: ${booking.fullName}
+Service: ${booking.serviceName}
+Date: ${booking.date}
+Time: ${booking.time}
+Amount: £${Number(booking.price).toLocaleString()}
+
+I am attaching my payment receipt. I made the deposit payment
+      `.trim();
+
+      const whatsappURL = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+    }
+
+
+
+  
+ 
+  function copyText(id, label) {
+    const text = document.getElementById(id).innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+      Swal.fire({
+        icon: "success",
+        title: "Copied!",
+        text: `${label} copied to clipboard`,
+        timer: 1500,
+        showConfirmButton: false
+      });
+    });
+  }
+
+  document.getElementById("copyNumber").addEventListener("click", () => copyText("accountNumber", "Account Number"));
+  document.getElementById("copySort").addEventListener("click", () => copyText("sortCode", "Sort Code"));
+
+
+
+
+  </script>
+
+</body>
+</html>

@@ -419,7 +419,7 @@
   localStorage.setItem('bookingData', JSON.stringify(bookingData));
 
   try {
-    const res = await fetch("/api/bookings", {
+    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -450,7 +450,7 @@ console.log(await res.text());
 // Fetch blocked dates from backend and disable them
 async function initBookingCalendar() {
   // Fetch blocked dates from backend
-  const res = await fetch("/api/availability");
+  const res = await fetch("https://onfleekhairven-backend.onrender.com/api/availability");
   const blockedDates = await res.json(); // ["2026-01-26", "2026-01-27"]
 
   // Initialize flatpickr
@@ -465,7 +465,7 @@ initBookingCalendar();
 
 
 async function refreshCalendar() {
-  const blockedDates = await fetch("/api/availability").then(res => res.json());
+  const blockedDates = await fetch("https://onfleekhairven-backend.onrender.com/api/availability").then(res => res.json());
 
   const fp = document.querySelector("#bookingDate")._flatpickr;
   fp.set("disable", blockedDates);

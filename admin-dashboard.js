@@ -49,7 +49,7 @@ async function loadBookings() {
   try {
     spinner.classList.remove("hidden");
 
-    const res = await fetch("/api/admin/bookings", {
+    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/admin/bookings", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -107,7 +107,7 @@ async function confirmPayment(id) {
   try {
     spinner.classList.remove("hidden");
 
-    const res = await fetch(`/api/admin/bookings/${id}/confirm`, {
+    const res = await fetch(`https://onfleekhairven-backend.onrender.com/api/admin/bookings/${id}/confirm`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -142,7 +142,7 @@ async function confirmPayment(id) {
 -------------------------- */
 
 async function loadBlockedDates() {
-  const res = await fetch("/api/availability");
+  const res = await fetch("https://onfleekhairven-backend.onrender.com/api/availability");
   const data = await res.json();
 
   blockedDatesList.innerHTML = "";
@@ -182,7 +182,7 @@ blockDateBtn.addEventListener("click", async () => {
   }
 
   try {
-    const res = await fetch("/api/availability/block", {
+    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/availability/block", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -208,7 +208,7 @@ blockDateBtn.addEventListener("click", async () => {
 
 
 async function removeBlockedDate(date) {
-  await fetch(`/api/availability/${date}`, {
+  await fetch(`https://onfleekhairven-backend.onrender.com/api/availability/${date}`, {
   method: "DELETE",
   headers: { Authorization: `Bearer ${token}` },
 });

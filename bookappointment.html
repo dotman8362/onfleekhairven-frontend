@@ -458,11 +458,6 @@ console.log(await res.text());
   }
 });
 
-async function getBlockedMonths() {
-  const res = await fetch("/api/blocked-months"); // Your backend endpoint
-  const blockedMonths = await res.json(); // [{ month: 1, year: 2026 }, ...]
-  return blockedMonths;
-}
 
 
 // Fetch blocked months from backend
@@ -471,7 +466,7 @@ async function getBlockedMonths() {
 // Initialize booking calendar
 async function initBookingCalendar() {
   const blockedDates = await fetch("https://onfleekhairven-backend.onrender.com/api/availability").then(res => res.json()); // e.g., ["2026-01-26"]
-  const blockedMonths = await getBlockedMonths();
+  
 
   flatpickr("#bookingDate", {
     dateFormat: "Y-m-d",
@@ -481,7 +476,7 @@ async function initBookingCalendar() {
       function(date) {
         const month = date.getMonth() + 1;
         const year = date.getFullYear();
-        return blockedMonths.some(bm => bm.month === month && bm.year === year);
+       
       }
     ],
     onDayCreate: function(dObj, dStr, fp, dayElem) {
@@ -508,7 +503,7 @@ async function initBookingCalendar() {
 // Refresh calendar dynamically
 async function refreshCalendar() {
   const blockedDates = await fetch("https://onfleekhairven-backend.onrender.com/api/availability").then(res => res.json());
-  const blockedMonths = await getBlockedMonths();
+  
 
   const fp = document.querySelector("#bookingDate")._flatpickr;
   fp.set("disable", [
@@ -516,7 +511,7 @@ async function refreshCalendar() {
     function(date) {
       const month = date.getMonth() + 1;
       const year = date.getFullYear();
-      return blockedMonths.some(bm => bm.month === month && bm.year === year);
+     
     }
   ]);
 
@@ -529,7 +524,7 @@ initBookingCalendar();
 
 async function refreshCalendar() {
   const blockedDates = await fetch("https://onfleekhairven-backend.onrender.com/api/availability").then(res => res.json());
-  const blockedMonths = await getBlockedMonths();
+  
 
   const fp = document.querySelector("#bookingDate")._flatpickr;
   fp.set("disable", [
@@ -537,7 +532,7 @@ async function refreshCalendar() {
     function(date) {
       const month = date.getMonth() + 1;
       const year = date.getFullYear();
-      return blockedMonths.some(bm => bm.month === month && bm.year === year);
+    
     }
   ]);
 

@@ -232,6 +232,113 @@ loadBlockedDates();
 
 
 
+// Block Month button
+const blockMonthBtn = document.getElementById("blockMonthBtn");
+const blockMonthInput = document.getElementById("blockMonthInput");
+const blockedMonthsList = document.getElementById("blockedMonthsList");
+const monthEmptyState = document.getElementById("monthEmptyState");
+
+// Add Block Month functionality
+blockMonthBtn.addEventListener("click", async () => {
+  const monthValue = blockMonthInput.value; // format YYYY-MM
+  if (!monthValue) return Swal.fire("Error", "Please select a month", "error");
+
+  const [year, month] = monthValue.split("-"); // split into year & month
+
+  try {
+    blockMonthBtn.disabled = true;
+    blockMonthBtn.textContent = "Blocking...";
+
+    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/block-month", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ month, year }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      addBlockedMonthToUI(data.blocked);
+      Swal.fire("Success", "Month blocked successfully", "success");
+      blockMonthInput.value = "";
+    } else {
+      Swal.fire("Error", data.message || "Failed to block month", "error");
+    }
+  } catch (err) {
+    console.error(err);
+    Swal.fire("Error", "Server error", "error");
+  } finally {
+    blockMonthBtn.disabled = false;
+    blockMonthBtn.textContent = "Block Month";
+  }
+});
+
+// Helper: add month to list with delete button
+function addBlockedMonthToUI(blocked) {
+  monthEmptyState.style.display = "none";
+
+  const li = document.createElement("li");
+  li.classList.add("flex", "justify-between", "items-center");
+
+  const span = document.createElement("span");
+  span.textContent = `${blocked.year}-${blocked.month}`;
+
+  const btn = document.createElement("button");
+  btn.textContent = "Unblock";
+  btn.classList.add("px-2", "py-1", "text-xs", "bg-red-600", "rounded", "text-white");
+  btn.addEventListener("click", () => unblockMonth(blocked._id, li));
+
+  li.appendChild(span);
+  li.appendChild(btn);
+  blockedMonthsList.appendChild(li);
+}
+
+async function loadBlockedMonths() {
+  try {
+    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/blocked-months");
+    const months = await res.json();
+
+    blockedMonthsList.innerHTML = "";
+
+    if (months.length === 0) {
+      monthEmptyState.style.display = "block";
+    } else {
+      monthEmptyState.style.display = "none";
+      months.forEach((m) => addBlockedMonthToUI(m));
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// Call on page load
+loadBlockedMonths();
+
+
+const btn = document.createElement("button");
+btn.textContent = "Unblock";
+btn.classList.add("px-2", "py-1", "text-xs", "bg-red-600", "rounded", "text-white");
+btn.addEventListener("click", () => unblockMonth(blocked._id, li));
+
+
+async function unblockMonth(id, liElement) {
+  try {
+    const res = await fetch(`https://onfleekhairven-backend.onrender.com/api/unblock-month/${id}`, { method: "DELETE" });
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      liElement.remove(); // remove from UI
+      if (!blockedMonthsList.hasChildNodes()) monthEmptyState.style.display = "block";
+      Swal.fire("Success", "Month unblocked", "success");
+    } else {
+      Swal.fire("Error", data.message || "Failed to unblock month", "error");
+    }
+  } catch (err) {
+    console.error(err);
+    Swal.fire("Error", "Server error", "error");
+  }
+}
+
 
 
 

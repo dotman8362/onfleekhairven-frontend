@@ -174,37 +174,44 @@ async function loadBlockedDates() {
 
 
 blockDateBtn.addEventListener("click", async () => {
-  const date = availabilityInput.value;
+   const dates = flatpickrInstance.selectedDates.map(d => {
+  // Convert to local YYYY-MM-DD string manually
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+});
 
-  if (!date) {
-    alert("Please select a date");
+  if (!dates.length) {
+    alert("Please select at least one date");
     return;
   }
 
   try {
-    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/availability/block", {
+    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/block-dates", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`, // if you use auth
       },
-      body: JSON.stringify({ date })
- // <-- correct format
+      body: JSON.stringify({ dates }) // send array of dates
     });
 
     const data = await res.json();
 
     if (!data.success) {
-      alert(data.message || "Failed to block date");
+      alert(data.message || "Failed to block dates");
       return;
     }
 
-    availabilityInput.value = "";
-    loadBlockedDates();
+    availabilityInput._flatpickr.clear(); // clear selection
+    loadBlockedDates(); // refresh blocked dates list
   } catch (err) {
-    alert("Failed to block date");
+    console.error(err);
+    alert("Failed to block dates");
   }
 });
+
 
 
 async function removeBlockedDate(date) {
@@ -222,3 +229,19 @@ async function removeBlockedDate(date) {
 
 loadBookings();
 loadBlockedDates();
+
+
+
+
+
+
+
+const flatpickrInstance = flatpickr(availabilityInput, {
+  mode: "multiple",      // allows multiple dates
+  dateFormat: "Y-m-d",   // returns strings directly
+  minDate: "today"
+});
+
+
+
+// Send `selectedDates` array to backend

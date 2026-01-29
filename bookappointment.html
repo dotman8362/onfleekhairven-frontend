@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book Appointment | Onfleek Hairven</title>
+  <title>Book Appointment | OnfleekHairven</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <!-- <link rel="stylesheet" href="style.css"> -->
@@ -458,22 +458,15 @@ console.log(await res.text());
   }
 });
 
-
-
-// Fetch blocked dates from backend and disable them
 async function getBlockedMonths() {
-  const res = await fetch("https://onfleekhairven-backend.onrender.com/api/blocked-months"); // Your backend endpoint
+  const res = await fetch("/api/blocked-months"); // Your backend endpoint
   const blockedMonths = await res.json(); // [{ month: 1, year: 2026 }, ...]
   return blockedMonths;
 }
 
 
 // Fetch blocked months from backend
-async function getBlockedMonths() {
-  const res = await fetch("https://onfleekhairven-backend.onrender.com/api/blocked-months"); // Your backend endpoint
-  const blockedMonths = await res.json(); // [{ month: 1, year: 2026 }, ...]
-  return blockedMonths;
-}
+
 
 // Initialize booking calendar
 async function initBookingCalendar() {

@@ -136,6 +136,19 @@
           <li>Tracked delivery recommended</li>
         </ul>
       </div>
+       <div>
+        <h3 class="font-semibold text-lg mb-2">🧴 Lace Requirement For Appointment</h3>
+        <ul class="space-y-2 list-disc pl-5">
+        <li>For a flawless, natural-look install, thinner lace gives the best results</li>
+    <li>Badly dye-stained lace cannot be used</li>
+    <li>Swiss and HD laces provide the most natural blend</li>
+    <li>Choose lace based on your skin tone:
+      <ul class="list-disc pl-5 mt-1">
+        <li>Caucasian or light skin: Transparent/HD lace</li>
+        <li>Light brown or darker skin: Light brown lace</li>
+        </ul>
+      </div>
+
 
       <div>
         <h3 class="font-semibold text-lg mb-2">🚫 House Rules</h3>
@@ -448,27 +461,95 @@ console.log(await res.text());
 
 
 // Fetch blocked dates from backend and disable them
-async function initBookingCalendar() {
-  // Fetch blocked dates from backend
-  const res = await fetch("https://onfleekhairven-backend.onrender.com/api/availability");
-  const blockedDates = await res.json(); // ["2026-01-26", "2026-01-27"]
+async function getBlockedMonths() {
+  const res = await fetch("https://onfleekhairven-backend.onrender.com/api/blocked-months"); // Your backend endpoint
+  const blockedMonths = await res.json(); // [{ month: 1, year: 2026 }, ...]
+  return blockedMonths;
+}
 
-  // Initialize flatpickr
+
+// Fetch blocked months from backend
+async function getBlockedMonths() {
+  const res = await fetch("https://onfleekhairven-backend.onrender.com/api/blocked-months"); // Your backend endpoint
+  const blockedMonths = await res.json(); // [{ month: 1, year: 2026 }, ...]
+  return blockedMonths;
+}
+
+// Initialize booking calendar
+async function initBookingCalendar() {
+  const blockedDates = await fetch("https://onfleekhairven-backend.onrender.com/api/availability").then(res => res.json()); // e.g., ["2026-01-26"]
+  const blockedMonths = await getBlockedMonths();
+
   flatpickr("#bookingDate", {
     dateFormat: "Y-m-d",
-    disable: blockedDates,
-    minDate: "today", // optional: prevent past dates
+    minDate: "today",
+    disable: [
+      ...blockedDates,
+      function(date) {
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return blockedMonths.some(bm => bm.month === month && bm.year === year);
+      }
+    ],
+    onDayCreate: function(dObj, dStr, fp, dayElem) {
+      const date = dayElem.dateObj;
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+
+      // Add visual style to blocked months
+      if (blockedMonths.some(bm => bm.month === month && bm.year === year)) {
+        dayElem.classList.add("bg-gray-300", "text-gray-500", "cursor-not-allowed");
+        dayElem.style.opacity = "0.5"; // faded
+        dayElem.title = "Month blocked by admin"; // optional tooltip
+      }
+
+      // Add visual style to individual blocked dates
+      if (blockedDates.includes(dStr)) {
+        dayElem.classList.add("bg-red-200", "text-red-600", "cursor-not-allowed");
+        dayElem.title = "Date unavailable";
+      }
+    }
   });
 }
 
+// Refresh calendar dynamically
+async function refreshCalendar() {
+  const blockedDates = await fetch("https://onfleekhairven-backend.onrender.com/api/availability").then(res => res.json());
+  const blockedMonths = await getBlockedMonths();
+
+  const fp = document.querySelector("#bookingDate")._flatpickr;
+  fp.set("disable", [
+    ...blockedDates,
+    function(date) {
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      return blockedMonths.some(bm => bm.month === month && bm.year === year);
+    }
+  ]);
+
+  fp.redraw();
+}
+
+// Initialize on page load
 initBookingCalendar();
 
 
 async function refreshCalendar() {
   const blockedDates = await fetch("https://onfleekhairven-backend.onrender.com/api/availability").then(res => res.json());
+  const blockedMonths = await getBlockedMonths();
 
   const fp = document.querySelector("#bookingDate")._flatpickr;
-  fp.set("disable", blockedDates);
+  fp.set("disable", [
+    ...blockedDates,
+    function(date) {
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      return blockedMonths.some(bm => bm.month === month && bm.year === year);
+    }
+  ]);
+
+  // Update day styles
+  fp.redraw();
 }
 
 

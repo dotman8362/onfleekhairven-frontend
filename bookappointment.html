@@ -485,11 +485,6 @@ async function initBookingCalendar() {
       const year = date.getFullYear();
 
       // Add visual style to blocked months
-      if (blockedMonths.some(bm => bm.month === month && bm.year === year)) {
-        dayElem.classList.add("bg-gray-300", "text-gray-500", "cursor-not-allowed");
-        dayElem.style.opacity = "0.5"; // faded
-        dayElem.title = "Month blocked by admin"; // optional tooltip
-      }
 
       // Add visual style to individual blocked dates
       if (blockedDates.includes(dStr)) {

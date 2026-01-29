@@ -13,7 +13,7 @@ form.addEventListener("submit", async (e) => {
   const password = document.getElementById("password").value;
 
   try {
-    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/admin/login", {
+    const res = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })

@@ -431,7 +431,7 @@
   localStorage.setItem('bookingData', JSON.stringify(bookingData));
 
   try {
-    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/bookings", {
+    const res = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -458,7 +458,7 @@ console.log(await res.text());
 });
 
 async function getBlockedMonths() {
-  const res = await fetch("https://onfleekhairven-backend.onrender.com/api/blocked-months"); // Your backend endpoint
+  const res = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/blocked-months"); // Your backend endpoint
   const blockedMonths = await res.json(); // [{ month: 1, year: 2026 }, ...]
   return blockedMonths;
 }
@@ -469,7 +469,7 @@ async function getBlockedMonths() {
 
 // Initialize booking calendar
 async function initBookingCalendar() {
-  const blockedDates = await fetch("https://onfleekhairven-backend.onrender.com/api/availability").then(res => res.json()); // e.g., ["2026-01-26"]
+  const blockedDates = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/availability").then(res => res.json()); // e.g., ["2026-01-26"]
   const blockedMonths = await getBlockedMonths();
 
   flatpickr("#bookingDate", {
@@ -506,7 +506,7 @@ async function initBookingCalendar() {
 
 // Refresh calendar dynamically
 async function refreshCalendar() {
-  const blockedDates = await fetch("https://onfleekhairven-backend.onrender.com/api/availability").then(res => res.json());
+  const blockedDates = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/availability").then(res => res.json());
   const blockedMonths = await getBlockedMonths();
 
   const fp = document.querySelector("#bookingDate")._flatpickr;
@@ -527,7 +527,7 @@ initBookingCalendar();
 
 
 async function refreshCalendar() {
-  const blockedDates = await fetch("https://onfleekhairven-backend.onrender.com/api/availability").then(res => res.json());
+  const blockedDates = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/availability").then(res => res.json());
   const blockedMonths = await getBlockedMonths();
 
   const fp = document.querySelector("#bookingDate")._flatpickr;

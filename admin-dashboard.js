@@ -49,7 +49,7 @@ async function loadBookings() {
   try {
     spinner.classList.remove("hidden");
 
-    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/admin/bookings", {
+    const res = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/admin/bookings", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -107,7 +107,7 @@ async function confirmPayment(id) {
   try {
     spinner.classList.remove("hidden");
 
-    const res = await fetch(`https://onfleekhairven-backend.onrender.com/api/admin/bookings/${id}/confirm`, {
+    const res = await fetch(`https://onfleekhairven-backend-production.up.railway.app/api/admin/bookings/${id}/confirm`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -142,7 +142,7 @@ async function confirmPayment(id) {
 -------------------------- */
 
 async function loadBlockedDates() {
-  const res = await fetch("https://onfleekhairven-backend.onrender.com/api/availability");
+  const res = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/availability");
   const data = await res.json();
 
   blockedDatesList.innerHTML = "";
@@ -188,7 +188,7 @@ blockDateBtn.addEventListener("click", async () => {
   }
 
   try {
-    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/block-dates", {
+    const res = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/block-dates", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -215,7 +215,7 @@ blockDateBtn.addEventListener("click", async () => {
 
 
 async function removeBlockedDate(date) {
-  await fetch(`https://onfleekhairven-backend.onrender.com/api/availability/${date}`, {
+  await fetch(`https://onfleekhairven-backend-production.up.railway.app/api/availability/${date}`, {
   method: "DELETE",
   headers: { Authorization: `Bearer ${token}` },
 });
@@ -249,7 +249,7 @@ blockMonthBtn.addEventListener("click", async () => {
     blockMonthBtn.disabled = true;
     blockMonthBtn.textContent = "Blocking...";
 
-    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/block-month", {
+    const res = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/block-month", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ month, year }),
@@ -295,7 +295,7 @@ function addBlockedMonthToUI(blocked) {
 
 async function loadBlockedMonths() {
   try {
-    const res = await fetch("https://onfleekhairven-backend.onrender.com/api/blocked-months");
+    const res = await fetch("https://onfleekhairven-backend-production.up.railway.app/api/blocked-months");
     const months = await res.json();
 
     blockedMonthsList.innerHTML = "";
@@ -323,7 +323,7 @@ btn.addEventListener("click", () => unblockMonth(blocked._id, li));
 
 async function unblockMonth(id, liElement) {
   try {
-    const res = await fetch(`https://onfleekhairven-backend.onrender.com/api/unblock-month/${id}`, { method: "DELETE" });
+    const res = await fetch(`https://onfleekhairven-backend-production.up.railway.app/api/unblock-month/${id}`, { method: "DELETE" });
     const data = await res.json();
 
     if (res.ok && data.success) {
